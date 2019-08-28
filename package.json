@@ -1,0 +1,19 @@
+{
+    "name": "suwon-react",
+    "version": "1.0.0",
+    "scripts": {
+        "client": "cd client && yarn start",
+        "server": "nodemon server.js",
+        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "cors": "^2.8.5",
+        "express": "^4.16.4",
+        "mysql": "^2.17.1",
+        "react-router-dom": "^5.0.1"
+    },
+    "devDependencies": {
+        "concurrently": "^4.0.1"
+    }
+}
