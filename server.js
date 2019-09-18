@@ -51,6 +51,20 @@ app.get('/api/post', (req, res) => {
 	});
 });
 
+app.get('/api/post/list', (req, res) => {
+	const { id } = req.query;
+	const SELECT_DETAIL_POST_TOPIC_QUERY = `select * from topic where id=${id}`;
+	connection.query(SELECT_DETAIL_POST_TOPIC_QUERY, (err, results) => {
+		if (err) {
+			return res.send(err);
+		} else {
+			return res.json({
+				data: results,
+			});
+		}
+	});
+});
+
 app.get('/api/joongo', (req, res) => {
 	connection.query(SELECT_ALL_JOONGO_QUERY, (err, results) => {
 		if (err) {
@@ -75,7 +89,7 @@ app.get('/api/help', (req, res) => {
 	});
 });
 
-app.get(`/api/post/list`, (req, res) => {
+app.get(`/api/post/page`, (req, res) => {
 	const { id } = req.query;
 	const SELECT_DETAIL_TOPIC_QUERY = `select * from topic where id=${id}`;
 	connection.query(SELECT_DETAIL_TOPIC_QUERY, (err, results) => {
